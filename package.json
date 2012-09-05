@@ -1,0 +1,31 @@
+{
+  "name": "request-caching",  
+  "version": "0.1.0",
+  "author": "Matteo Agosti <matteo@matteoagosti.com>",
+  "description": "HTTP and HTTPS requests with caching for node.js",  
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "main": "./lib/request-caching",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/matteoagosti/node-request-caching.git"
+  },
+  "keywords": [
+    "caching",
+    "http",
+    "https",
+    "request"
+  ],
+  "dependencies": {
+    "hiredis": "0.1.x",
+    "redis": "0.7.x"
+  },
+  "devDependencies": {
+    "mocha": "1.4.x"
+  },  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
