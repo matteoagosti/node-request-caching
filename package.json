@@ -1,6 +1,6 @@
 {
   "name": "request-caching",  
-  "version": "0.1.0",
+  "version": "0.0.1",
   "author": "Matteo Agosti <matteo@matteoagosti.com>",
   "description": "HTTP and HTTPS requests with caching for node.js",  
   "scripts": {
