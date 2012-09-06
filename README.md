@@ -76,3 +76,7 @@ This is the structure for the `options` parameter (with defaults values included
   }
 }
 ```
+
+### Additional notes
+
+Right now the TTL is specified in seconds, despite the `Memory` adapter can work with milliseconds resolution. I went for it as until `Redis 2.6` will be out, the current `Redis` adapter can't go below second precision. In addition, `Redis` key expire precision is in the order of half a second, so pay attention when storing keys with a TTL of 1, as it may happen that when reading them after 1.5seconds you'll still get the cached entry.
