@@ -3,9 +3,10 @@ var rc = new RequestCaching();
 
 for(var i=0; i<10; i++) {
   setTimeout(function() {
-    rc.get('https://graph.facebook.com/facebook', {fields: 'id,name'}, 5, function(err, res, body, cache) {
-      console.log(body);
-      console.log(cache);
+    rc.get('https://graph.facebook.com/facebook', {fields: 'id,name'}, 1, function(err, res, body, cache) {
+      console.log('Response', res);
+      console.log('Body', body);
+      console.log('Cache', cache);
     });
   }, i*1000);
 }
