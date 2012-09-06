@@ -5,7 +5,7 @@ for (var i in stores) {
   (function(store) {
     var Store = require('../lib/store/' + store);
     describe(store, function() {
-      describe('get(key, callback)', function(done) {
+      describe('get(key, callback)', function() {
         it('should fail if key is missing or not a string', function() {
           var store = new Store();
           assert.throws(function() {
