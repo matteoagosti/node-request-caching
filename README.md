@@ -76,6 +76,18 @@ This is the structure for the `options` parameter (with defaults values included
   }
 }
 ```
+#### get(uri, params, ttl, callback)
+
+Issues a `GET` request to the given `uri`, adding `params` to the query string, storing into cache for `ttl` seconds, invoking `callback` once done (both when error or success). If `uri` already includes a query string, its value get added to `params`, but without overriding what's already defined in `params`.
+
+#### post(uri, params, ttl, callback)
+
+The same as previously mentioned `get(uri, params, ttl, callback)`, but issuing a `POST` request, adding `params` to the request body and including the following request headers:
+
+```
+'Content-Type': 'application/x-www-form-urlencoded',
+'Content-Length': querystring.stringify(params)
+```
 
 ### Additional notes
 
