@@ -119,7 +119,7 @@ Issues an HTTP / HTTPS request, optionally caching its result.
 
 `callback(err, res, body, cache)` gets invoked whenever error or response occurs. Function arguments are:
 - `err`: the error message, `null` if everything is ok
-- `res`: object containing some properties of the HTTP.response. An example of what you could get:
+- `res`: object containing some properties of the HTTP.response:
 ```javascript
 {
   headers: {
@@ -128,8 +128,8 @@ Issues an HTTP / HTTPS request, optionally caching its result.
   },
   statusCode: ...
 }
-
 ```
+
 - `body`: response's body as string
 - `cache`: object containing some cache properties:
 ```javascript
