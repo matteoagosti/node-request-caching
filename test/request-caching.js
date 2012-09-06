@@ -100,11 +100,9 @@ describe('request-caching', function() {
           assert.notEqual(cache.key, key, '[key] is different from one of the original request');
           assert.deepEqual(data.queryString, params, '[body] is equal to ' + params);
           assert.equal(cache.hit, false, '[hit] is false');
-
           done();
         });
       });
     });
-
   });
 });
