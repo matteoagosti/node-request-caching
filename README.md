@@ -5,6 +5,74 @@ node-request-caching
 
 ### Features
 
+- Zero configuration
+- Convenience methods for GET / POST requests with parameters (querystring / request body)
+- Automatic key generation based on request signature
+- Memory and Redis adapters for cache storage
+
 ### Installation
 
+As the module is not yet on npm registry, install with:
+
+```
+npm install https://github.com/matteoagosti/node-request-caching/tarball/master
+```
+
+If you want to run tests you first have to install `mocha` and the from the module directory run:
+
+```
+npm test
+```
+
 ### Usage
+
+You can find a simple example into `examples/simple.js`
+
+```
+var RequestCaching = require('../lib/request-caching');
+
+// Cache into Memory
+var rc = new RequestCaching();
+
+for (var i = 0; i < 10; i++) {
+  setTimeout(function() {
+    rc.get(
+      'https://graph.facebook.com/facebook',  // URI
+      {fields: 'id,name'},                    // query string params
+      1,                                      // TTL in seconds
+      function(err, res, body, cache) {
+        console.log('Response', res);         // response params object (headers, statusCode, ...)
+        console.log('Body', body);            // response body as string
+        console.log('Cache', cache);          // cache info object (hit, key)
+      }
+    );
+  }, i * 1000);
+}
+```
+
+### API
+
+#### RequestCaching(options)
+
+Every instance has its own shared cache storage adapter.
+
+This is the structure for the `options` parameter (with defaults values included):
+
+```
+{
+  store: {                    // STORE config, shared among requests from the same instance
+    adapter: 'method',        // can be either memory or redis
+    options: {                // any additional options for the adapter (e.g. redis config)
+      ...
+    }
+  },
+  request: {                  // any defaults for node HTTP.request method
+    method: 'GET',
+    ...
+  },
+  caching: {                  // CACHING config
+    ttl: 60*60,               // default TTL in seconds, used when not specified in request
+    prefix: 'requestCaching'  // prefix to append before each key, if set keys will be prefix:key
+  }
+}
+```
