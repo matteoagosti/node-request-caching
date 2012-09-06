@@ -12,7 +12,15 @@ node-request-caching
 
 ### Installation
 
-As the module is not yet on npm registry, install with:
+If you want to install from npm:
+
+```
+npm install node-request-caching
+```
+
+I wanted the name to be `request-caching` but was already taken. I'm sorry about that :)
+
+If you want to install from git:
 
 ```
 npm install https://github.com/matteoagosti/node-request-caching/tarball/master
@@ -61,7 +69,7 @@ This is the structure for the `options` parameter (with defaults values included
 ```javascript
 {
   store: {                    // STORE config, shared among requests from the same instance
-    adapter: 'method',        // can be either memory or redis
+    adapter: 'memory',        // can be either memory or redis
     options: {                // any additional options for the adapter (e.g. redis config)
       ...
     }
