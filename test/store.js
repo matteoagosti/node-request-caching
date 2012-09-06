@@ -63,6 +63,16 @@ for (var i in stores) {
           });
         });
 
+        it('should fail when callback is specified and not a function', function() {
+          var store = new Store();
+          assert.doesNotThrow(function() {
+            store.set('key', 'data', 1);
+          });
+          assert.throws(function() {
+            store.set('key', 'data', 1, {});
+          });
+        });
+
         it('should fail if data is missing or null', function() {
           var store = new Store();
           assert.throws(function() {
@@ -142,10 +152,20 @@ for (var i in stores) {
         it('should fail if key is missing or not a string', function() {
           var store = new Store();
           assert.throws(function() {
-            store.get();
+            store.remove();
           });
           assert.throws(function() {
-            store.get({});
+            store.remove({});
+          });
+        });
+
+        it('should fail when callback is specified and not a function', function() {
+          var store = new Store();
+          assert.doesNotThrow(function() {
+            store.remove('key');
+          });
+          assert.throws(function() {
+            store.remove('key', {});
           });
         });
 
