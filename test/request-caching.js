@@ -18,7 +18,7 @@ var assert = require('assert'),
           postData: postData
         }));
       });
-    };,
+    },
     httpServer = http.createServer(serverCallback).listen(8080),
     httpsServer = https.createServer({
       key: fs.readFileSync('test/fixtures/privatekey.pem'),
