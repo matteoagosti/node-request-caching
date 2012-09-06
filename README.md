@@ -28,7 +28,7 @@ npm test
 
 You can find a simple example into `examples/simple.js`
 
-```
+```javascript
 var RequestCaching = require('../lib/request-caching');
 
 // Cache into Memory
@@ -58,7 +58,7 @@ Every instance has its own shared cache storage adapter.
 
 This is the structure for the `options` parameter (with defaults values included):
 
-```
+```javascript
 {
   store: {                    // STORE config, shared among requests from the same instance
     adapter: 'method',        // can be either memory or redis
