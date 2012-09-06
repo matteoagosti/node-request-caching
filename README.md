@@ -123,11 +123,11 @@ Issues an HTTP / HTTPS request, optionally caching its result.
 
 ```javascript
 {
-  headers: {
-    'key': 'value',
-    ...
-  },
-  statusCode: ...
+	headers: {
+		'key': 'value',
+		...
+	},
+	statusCode: ...
 }
 ```
 
@@ -136,8 +136,8 @@ Issues an HTTP / HTTPS request, optionally caching its result.
 
 ```javascript
 {
-  hit: true/false,   // true if content was fetched from cache
-  key: '...',        // the key (useful when using automatic key generation)
+	hit: true/false,   // true if content was fetched from cache
+	key: '...',        // the key (useful when using automatic key generation)
 }
 ```
 
