@@ -49,7 +49,7 @@ for (var i = 0; i < 10; i++) {
       {fields: 'id,name'},                    // query string params
       1,                                      // TTL in seconds
       function(err, res, body, cache) {
-        console.log('Response', res);         // response params object (headers, statusCode)
+        console.log('Response', res);         // response params object (options, headers, statusCode)
         console.log('Body', body);            // response body as string
         console.log('Cache', cache);          // cache info object (hit, key)
       }
@@ -97,7 +97,7 @@ Issues an HTTP / HTTPS request, optionally caching its result.
                               // it will be used for building HTTP.request options
   
   params: {                   // Optional parameters that will be querystringified and
-    param1: 'value1',         // appended to GET querystring or added to POST request body.
+    key: 'value',             // appended to GET querystring or added to POST request body.
     ...                       // If uri contains already a query string, its param=value pairs 
                               // will be merged with params, without overwrite them
   },
