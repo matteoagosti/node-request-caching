@@ -131,11 +131,15 @@ Issues an HTTP / HTTPS request, optionally caching its result.
 
 ```javascript
 {
-	headers: {
+  options {             // The options argument of request method with additional properties 
+    ...                 // resulting from mergin with defaults and from instanciating HTTP.request
+  },
+
+	headers: {            // Response's headers
 		'key': 'value',
 		...
 	},
-	statusCode: ...
+	statusCode: ...       // Response's status code
 }
 ```
 
@@ -164,4 +168,4 @@ The same as previously mentioned `get(uri, params, ttl, callback)`, but issuing 
 
 ### Additional notes
 
-Right now the TTL is specified in seconds, despite the `Memory` adapter can work with milliseconds resolution. I went for it as until `Redis 2.6` will be out, the current `Redis` adapter can't go below second precision; for consistency reasons I preferred to leave everything in seconds. In addition, `Redis` key's expire precision is in the order of half a second (more or less), so pay attention when storing keys with a TTL of 1, as it may happen that when reading them after 1.5 seconds you'll still get the cached entry.
+Right now the TTL is specified in seconds, despite the `Memory` adapter can work with milliseconds resolution (just pass seconds as a float number). I went for it as until `Redis 2.6` will be out, the current `Redis` adapter can't go below seconds precision (if you do that you'll experience an error when storing the key); for consistency reasons I preferred to leave everything in seconds. In addition, `Redis` key's expire precision is in the order of half a second (more or less), so pay attention when storing keys with a TTL of 1, as it may happen that when reading them after 1.5 seconds you'll still get the cached entry.
